@@ -1,0 +1,272 @@
+% Vorlage für eine IRS-Bachelor/Masterarbeit
+% Hinweis: Die Vorlage ist als Hilfestellung für die Erstellung einer Abschlussarbeit gedacht und stellt keinenfalls eine garantierte Einhaltung der Institutsrichtlinien dar. Viel Erfolg bei der Arbeit!
+% Autor: Jan-Steffen Fischer nach einer Vorlage von Richard Kastelik
+
+% Dokumentenklasse, Schriftgröße (11-12 empfohlen), Sprache, Zweiseitiges Dokument 
+\documentclass[11pt,ngerman,open=right,twoside=true]{scrbook}
+
+%Input Codierung
+\usepackage[utf8]{inputenc}
+% Seitenlayout A4
+\usepackage[a4paper]{geometry}
+% Seitenränder (Korrekturrand 2,5 lt. Richtlinien)
+\geometry{verbose,tmargin=2.4cm,bmargin=3.2cm,lmargin=2.6cm,rmargin=2.2cm}
+% Numerierungstiefe einstellen 
+\setcounter{secnumdepth}{3}
+%Absatzlänge einstellen
+\setlength{\parskip}{\bigskipamount}
+\setlength{\parindent}{0pt}
+%Sprachpaket
+\usepackage{babel}
+
+%Zitation
+\usepackage[babel, german=quotes]{csquotes}
+\usepackage[backend=biber, style=numeric, firstinits=true, sorting=none]{biblatex}
+% Wichtig: die Datei muss mit Biber kompliliert werden. Erst die tex datei kompilieren, danach unter Tools --> Befehle --> Biber auswählen und anschließend nochmals die tex kompilieren. 
+
+% Nachname in Kapitlächen
+%\renewcommand*{\mkbibnamelast}[1]{\textsc{#1}}
+% erst Nachname, dann Vorname
+\DeclareNameAlias{default}{last-first}
+% Trenner zwischen den Namen ein Semikolon
+\renewcommand*{\multinamedelim}{\addsemicolon\space}
+\renewcommand*{\finalnamedelim}{\addsemicolon\space}
+% Trenner zwischen den Namen ein Semikolon
+\renewcommand*{\multinamedelim}{\space}
+% Doppelpunkt nach dem letzten Namen
+\renewcommand*{\labelnamepunct}{\addcolon\space}
+% Ausgabe der Annotation
+%\renewcommand*{\annotationfont}{\small\itshape}
+\renewbibmacro*{finentry:annotation}{%
+  \iffieldundef{annotation}
+    {\finentry}%
+    {\setunit{\addperiod\space}% statt: \addperiod\par
+     \printfield{annotation}}%
+}
+
+% Literaturdatei
+\addbibresource{literatur.bib}
+
+%PDF-Dokumente Verweise
+\usepackage[unicode=true,
+ bookmarks=true,bookmarksnumbered=false,bookmarksopen=false,
+ breaklinks=false,pdfborder={0 0 1},backref=false,colorlinks=false,urlcolor=blue]
+ {hyperref}
+\hypersetup{pdftitle={Titel},
+ pdfauthor={Student}}
+
+%Tabelle wird zu Tab. und Abbildung zu Abb.
+\addto\extrasgerman{\renewcommand{\figurename}{Abb.}}
+\addto\extrasgerman{\renewcommand{\tablename}{Tab.}}
+
+% Bilder
+\usepackage{graphicx}
+\usepackage[rflt]{floatflt}
+\usepackage{epsfig,wrapfig}
+\usepackage{float}
+\usepackage{subfig}
+\usepackage[section]{placeins}
+\usepackage{rotating}
+%\usepackage{subcaption}
+
+% Mathematische Symbole
+\usepackage{amsmath,amssymb}
+\usepackage[official]{eurosym}
+\usepackage{romannum}
+
+% Tabellen
+\usepackage{longtable,lscape}
+\usepackage{multirow}
+\usepackage{tabularx}
+%horizontale Tabellen
+\usepackage{lscape}
+\newcommand\tabrotate[1]{\rotatebox{90}{#1\hspace{\tabcolsep}}}
+\newcommand\verschiebung[1][-.75\normalbaselineskip]{\hspace{#1}}
+
+% Listenerscheinung
+\setlength{\itemsep}{0ex}
+\setlength{\parsep}{0ex}
+\setlength{\parskip}{2mm}
+
+% Einbindung Aufgabenstellung als PDF ermöglichen
+\usepackage{pdfpages}
+
+%%% Entwurfsstatus
+% Wasserzeichen
+%\usepackage[firstpage]{draftwatermark}
+%\SetWatermarkText{Entwurf vom: \today}
+
+% To-Do Notes
+\usepackage{todonotes}
+
+%Auskommentierung
+\usepackage{comment}
+
+%%%
+
+% weist dem Zeichen @ Kategorie-Code 11 zu, so dass es in Namen von Befehlssequenzen verwendet werden kann
+\makeatletter
+% Vermeidet neue/alte Absätze an Seitenanfängen / -enden
+\widowpenalty=3000
+\clubpenalty=3000
+\brokenpenalty=100000
+
+%Silbentrennung bearbeiten
+\usepackage{hyphenat}
+
+%Manipulation von Kopf- bzw. Fußzeile
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+%Definiert die Dicke der Kopf/Fußzeile
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+%Einstellung wo Kapitel/Sektion angegeben werden
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter{} #1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection{} #1}}
+%Clears the header and footer,
+\fancyhf{}
+% Seitenzahlen Links/Rechts 
+\fancyhead[EL]{\textsf{\textbf{\leftmark}}}
+\fancyhead[OR]{\textsf{\textbf{\rightmark}}}
+\fancyfoot[EL,OR]{\textsf{\textbf{\thepage}}}
+%\fancyhead[EL,OR]{\textbf{\thepage}}
+
+
+% Einstellungen für plain Seiten
+\fancypagestyle{plain}
+{
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+
+\fancyhf{}
+
+\fancyhead[EL]{\textsf{\textbf{\leftmark}}}
+\fancyhead[OR]{\textsf{\textbf{\rightmark}}}
+\fancyfoot[EL,OR]{\textsf{\textbf{\thepage}}}
+%\fancyhead[EL,OR]{\textbf{\thepage}}
+}
+%Bilder werden in der Section ausgegeben
+\usepackage[section]{placeins}
+%weist @ der Kategorie-Code 12 zu
+\makeatother
+
+%%%%%%%%%%% Dokument
+
+\begin{document}
+% Titelseite
+\thispagestyle{empty}
+
+% Abstände müssen ggf angepasst werden, damit Titel in das Fenster passt
+\vspace*{23mm}
+\hspace{30mm}%
+\begin{minipage}[c][67mm]{117mm}%
+% Titel in Originalsprache
+\begin{center}
+	\textbf{\Large{}Entwurf des Entfaltmechanismus für das Kamera-System der DETECT Nutzlast für die SOURCE-2 Mission}{\Large\par}
+	\par\end{center}
+% Titel in englischer/deutscher Sprache
+\begin{center}
+	\textbf{\textit{\Large{Design of the deployment mechanism for the camera system of the DETECT payload for the SOURCE-2 mission}}}{\Large\par}
+	\par\end{center}
+\begin{center}
+Bachelorarbeit von\\
+Timon Berten
+\par\end{center}
+\begin{center}
+IRS-Nummer
+\par\end{center}%
+\end{minipage}
+
+\vspace*{3.5cm}
+
+\hspace{30mm}%
+\begin{minipage}[c]{117mm}%
+\begin{center}
+\textbf{\small{}Hochschullehrerin:}{\small{}}\\
+{\small{}Frau Prof. Dr.-Ing. Sabine Klinkner}{\small\par}
+\par\end{center}
+\begin{center}
+\textbf{\small{}Betreuer/in:}{\small{}}\\
+{\small{}(Unternehmen: Name des externen Betreuers/der externen Betreuerin \& akademischer Titel)}\\
+{\small{}Institut für Raumfahrtsysteme: Marlin Kanzow M.Sc.}\\
+{\small{}\vspace*{3.5cm}}{\small\par}
+\par\end{center}
+\begin{center}
+(Unternehmen, Ort) \\
+Institut für Raumfahrtsysteme\\
+Universität Stuttgart
+\par\end{center}
+\begin{center}
+April 2025
+\par\end{center}%
+\end{minipage}
+\newpage{}
+
+
+\cleardoublepage
+%To-Do: Aufgabenstellung einfügen
+%\includepdf[pages=1]{Aufgabenstellung}
+\cleardoublepage
+%To-Do: Erklärungen einfügen
+%\includepdf[pages=1]{Bestaetigung}
+
+
+\newpage
+%\listoftodos
+\pagenumbering{Roman} \setcounter{page}{5}
+%Inhaltsverzeichnis
+\tableofcontents{}
+
+%Abbildungsverzeichnis (optional)
+%\listoffigures
+
+%Tabellenverzeichnis (optional)
+%\listoftables
+%\newpage
+%\thispagestyle{empty}
+%\quad
+
+% Nomenklatur
+\markboth{Nomenklatur}{Nomenklatur}
+%\addcontentsline{toc}{chapter}{Nomenklatur}
+\input{nomenklatur}
+
+
+\cleardoublepage
+\pagenumbering{arabic}
+
+%Einführung in die Source 2 Mission und Mechanismen in der Raumfahrt
+\input{Einleitung}
+
+%Grundlagen zu CubeSats und den einzelnen Bauteilen für die Mechanismen
+\include{Grundlagen}
+
+% Formalien rund um die Abschlussarbeit
+\input{Mechanismus Requirements}
+
+%Vorstellung aller DB Konzepte und anschließendes TradeOff
+\input{Mechanismen Konzepte und Trade Off}
+
+% Tests und Simulation in Matlab
+\input{Nachweis des Mechanismus}
+
+%Darstellung des Gesamtentwurf / Funktionsweise und Details
+\input{Detaillierter Gesamtentwurf}
+
+% Zusammenfassung und Ausblick
+\input{Zusammenfassung und Ausblick}
+
+% Literaturverzeichnis
+\printbibliography
+
+\cleardoublepage
+\appendix
+\markboth{}{}
+% Fortführung der lateinischen Numerierung
+\pagenumbering{Roman}
+\setcounter{page}{9}
+
+% Anhang
+\input{anhang}
+
+\end{document}

@@ -1,0 +1,126 @@
+\newpage
+\chapter{Formalien rund um die Abschlussarbeit}
+Im Folgenden werden die grundlegenden Formalien wissenschaftlicher Abschlussarbeiten ausgeführt.
+
+\section{Überschrift Sektion}
+\label{sec:ueberschrift_sektion}
+Unter jeder Überschrift sollte ein Text stehen.
+\subsection{Überschrift Subsektion}
+\label{subsec:ueberschrift_subsektion}
+Es sollten nicht mehr als drei Ebenen verwendet werden.
+
+\section{Inhalt \& Sprache}
+\label{subsec:inhalt_sprache}
+Die Arbeit sollte so geschrieben sein, dass ein Bachelor-/Master-Absolvent/Absolventin der LRT sie auch ohne Kenntnisse auf dem Fachgebiet verstehen kann. Sprachlich ist auf eine wissenschaftliche Schreibweise zu achten. Daher sollte eine Darstellung immer objektiv sein, Formulierungen wie \glqq besser\grqq{}, \glqq gut\grqq{}, etc. sind zu vermeiden. Außerdem ist die Arbeit als neutraler Erzähler zu schreiben, daher nicht \glqq Ich\grqq{} verwenden. Die Arbeit sollte in Präsens geschrieben sein, Ausnahme stellt die Erläuterung von (Versuchs-)Durchführungen dar, hier ist Vergangenheit zu wählen.
+
+\section{Zitieren}
+\label{subsec:zitieren}
+Wichtig bei wissenschaftlichen Arbeiten ist das richtige Zitieren, daher die Angabe von Erkenntnissen, welche von Dritten stammen. Es ist dabei möglichst die Primärquelle zu verwenden, sollte diese nicht zugänglich sein, kann auch auf Sekundärquellen zurückgegriffen werden. Wörtliche Zitate sind entsprechend zu kennzeichnen.
+Zitiert wird hierbei mittels numerischer Zitation (\cite{Fasoulas2017}) entsprechend der Reihenfolge im Dokument oder alternativ der alphabetischen Reihenfolge der Nachnamen. Autorenangaben werden als Kapitälchen geschrieben \textsc{Dallas et al.} \cite{Dallas.2020}.
+Mehrere Quellen sind als \cite{Fasoulas2017, Dallas.2020,Edwards.07072002} oder [1-3] anzugeben. Die Angaben werden immer am Satzende nach der ersten Aussage einer Quelle aufgeführt oder bei mehreren Sätzen am Ende des Absatzes. Gängige Quellen in der Literatur sind:
+\begin{itemize}
+	\item Artikel in einer Zeitschrift (Bsp. \cite{Dallas.2020})
+	\item Konferenz mit Proceedings (Bsp. \cite{Edwards.07072002})
+	\item Konferenz ohne Proceedings (Bsp. \cite{Chanoine.2017})
+	\item Fachbücher (Bsp. \cite{Fasoulas2017})
+	\item Normen \& Standards (Bsp. \cite{ECSS2009})
+	\item Dissertationen (Bsp. \cite{AdelePoubeau.2015})
+	\item Graue Literatur (Berichte, Datenblätter, Broschüren, etc.) (Bsp. \cite{Cicerone.051973,ESA2016})
+	\item Online-Quellen (Bsp. \cite{EuropeanSpaceAgency2021})
+	\item Persönliche Mitteilung (Informationen aus Mails, Telefonate, Gespräche mit Dritten) (Bsp. \cite{Fischer})
+	\item Außerdem: Vorlesungsskripte, Patente, technische Berichte ... (Bsp. \cite{Cicerone.051973})
+	\item Unveröffentlichtes ist entsprechend zu markieren
+\end{itemize}
+Mindestens sollten immer Autor, Titel und Jahr angegeben werden. 
+
+\section{Abbildungen}
+\label{subsec:abbildungen}
+Abbildungen sollten im Dokument auf A4 gut lesbar sein. Idealerweise haben die Beschriftungen in der Abbildung dieselbe Schriftgröße wie das Dokument. Wo möglich sollten Abbildungen als Vektorgrafik (bspw. svg, pdf) eingefügt werden, in anderen Formaten sollten sie im Dokument scharf sein, jedoch sollte eine angemessene Dateigröße gewählt werden (300-600 dpi reichen normalerweise aus). Abbildungen und Diagramme sind vorzugsweise am Seitenanfang oder alternativ am -ende zu platzieren. Diagramme müssen vollständig mit Achsenbeschriftung, physikalischen Einheiten und Legende sein. Empfohlen wird hier die Erstellung mittels Python/Matplotlib. 
+Abbildungen werden immer beschriftet mit eindeutigem Titel und ggf. einer Quelle. Latex führt diese dann auch im Abbildungsverzeichnis auf. 
+Jede Abbildung muss im Text referenziert werden.
+Abbildungen können auch mittels des Minipage-Pakets nebeneinander, bzw. als Gruppe platziert werden.
+\subsection{Beispielabbildung}
+\label{subsec:beispielabbildung}
+Wie in Abb. \ref{fig:flugbahn} dargestellt, greifen an einer Rakete unterschiedliche Kräfte an.  \\
+$D $ = Widerstand [N] \\
+$F $ = Schub [N] \\
+$g_0 $ = Gravitationskonstante der Erde [$\mathrm{m/s^2}$] \\
+$L $ = Auftrieb [N] \\
+$l_{\textrm{d}} $ = Länge Schwerpunkt - Angriffspunkt der aerodynamischen Kräfte [m] \\
+$l_{\textrm{e}} $ = Länge Schwerpunkt - Triebwerk [m] \\
+$m $ = Masse des Gesamtsystems [kg] \\
+$v $ = Geschwindigkeit [$\mathrm{m/s}$] \\
+$\alpha$ = Anstellwinkel [$^\circ$] \\
+$\gamma$ = Winkel zur horizontalen X-Achse [$^\circ$] \\
+$\delta$ = Auslenkungswinkel des Triebwerks zur Trägerlängsachse [$^\circ$] \\
+$\omega$ = Drehgeschwindigkeit [$^\circ \mathrm{/s}$] \\
+CoG = Schwerpunkt des Gesamtsystems \\
+CoP = Angriffspunkt der aerodynamischen Kräfte \\
+PoG = Drehpunkt des Kardans \\
+
+\begin{figure}[hbt!]
+	\centering
+	\includegraphics[width=0.5\textwidth]{abbildungen/koordinaten.pdf}
+	\caption{Beispielabbildung mit Konstanten zur Beschreibung der Flugbahn einer Rakete.}
+	\label{fig:flugbahn}
+\end{figure}
+
+\section{Formeln}
+\label{subsec:formeln}
+Formeln sind zu nummerieren und im Allgemeinen als Satzteile zu betrachten, daher steht am Ende einer Formel üblicherweise ein Punkt oder Komma. Bei Bedarf können Sie so im Text referenziert werden. Formelsymbole sollten bei der ersten Nennung mit Einheit im Text oder als Auflistung erklärt werden und sind grundsätzlich kursiv zu schreiben (auch im Fließtext), Indizes jedoch nicht (ist allerdings akzeptabel). Physikalische Einheiten, chemische (Summen-)Formeln sowie mathematische Operatoren werden nicht kursiv geschrieben.
+
+\subsection[Beispielformeln]{Beispielformeln (aus \cite{Fasoulas2017})}
+\label{subsec:beispielformeln}
+Wenn eine Rakete eine Nutzlast vom Erdboden in einen Orbit befördern soll, so muss diese zunächst eine bestimmte Geschwindigkeit erreichen, um auf einer niedrigen Umlaufbahn um die Erde zu kreisen.
+Die Energiegleichung für einen Flugkörper um einen Zentralkörper ist gegeben durch:
+\begin{equation}
+	\frac{1}{2} v_{\textrm{b}}^2 - \frac{\gamma m_{\textrm{z}}}{r_{\textrm{b}}}= -\frac{\gamma   m_{\textrm{z}}}{2 a} = \epsilon = \frac{1}{2}   {v^2}_{\infty} = const. \ .
+	\label{eq:energiegleichung}
+\end{equation}
+Dabei stellt $a$ die große Halbachse der Bahn in m dar, $\epsilon$ die spezifische Bahnenergie in m$^2$/s$^2$, $\gamma$ die Gravitationskonstante von 6,674$ 10^{-11}\,\mathrm{m^3/kgs^2}$, $m_{\textrm{z}}$ die Masse des Zentralkörpers in kg, $r_{\textrm{b}}$ den Bahnradius in m, $v_{\textrm{b}}$ die Bahngeschwindigkeit in m/s sowie $v_{\infty}$ die Bahngeschwindigkeit in m/s im Unendlichen dar.
+
+Für die Erde gilt $\gamma   m_{\textrm{z}} = g_0   {R_0}^2$. Für eine Kreisbahn um die Erde gilt dann $a=r_{\textrm{b}}=r_{\textrm{k}}$ und $v_{\textrm{b}} = v_{\textrm{k}}$. Damit gilt durch Einsetzen in Gl.~\ref{eq:energiegleichung}:
+\begin{align}
+	\frac{1}{2}   {v^2}_{\textrm{k}} - \frac{g_0 {R^2}_0}{r_{\textrm{k}}} = -\frac{{g_0   {R^2}_0}}{2    r_{\textrm{k}}} \, \\
+	v_{\textrm{k}} = \sqrt{\frac{g_0   {R^2}_0}{r_{\textrm{k}}}} \ , 
+	\label{eq:engergiegleichung2}
+\end{align}
+$g_0$ = Gravitationsbeschleunigung der Erde $\mathrm{[m/s^2]}$ , \\
+$R_0$ = Radius der Erde [m] ,\\
+$r_{\textrm{k}}$ = Radius der Kreisbahn [m] , \\
+$v_{\textrm{k}}$ = Bahngeschwindigkeit auf der Kreisbahn [m/s]. \\
+
+Für eine Kreisbahn nahe der Erdoberfläche gilt $\frac{R_0}{r_{\textrm{k}}} = 1$ und damit:
+\begin{equation}
+v_{{\textrm{k}}0} = \sqrt{g_0   R_0} = 7,91\,\mathrm{km/s} \ . 
+\label{nocheinegleichung}
+\end{equation}
+Dies entspricht der 1. kosmischen Fluchtgeschwindigkeit $v_{{\textrm{k}}0}$.
+
+\section{Tabellen}
+\label{subsec:tabelle}
+Tabellen haben dieselbe Schriftgröße wie der Rest des Dokuments. Einheiten sind entweder in den Spaltentiteln oder ggf. als separate Zeile oder in der Überschrift anzugeben.
+Wie auch Abbildungen sind die Tabellen mit einer Nummerierung und Unterschrift zu versehen und im Text zu referenzieren.
+
+\subsection{Beispieltabelle}
+\label{subsec:beispieltabelle}
+Tab. \ref{tab:startdaten} stellt die Daten von Höhe und Distanz zur Startplattform nach einem Raketenstart dar.\\
+Zeilen mit Währungsangaben sind rechtsbündig zu formatieren, Zahlenangaben mit Komma anhand der Kommazeichen auszurichten.
+ 
+\begin{table}[htbp]
+	\centering
+	\caption{Höhe und Distanz zur Startplattform in Abhängigkeit der Missionsdauer}
+		\begin{tabular}{ccc} \hline
+		\textbf{Zeit in s} & \textbf{Höhe in km} & \textbf{Distanz in km} \\ \hline 
+		0 & 0 & 0 \\ 
+		100  & 20 & 10 \\ 
+		250 & 60 & 20 \\ 
+		300 & 80 & 50 \\ 
+		500 & 120 & 100 \\  \hline
+	\end{tabular}
+	\label{tab:startdaten}%
+\end{table}
+
+\section{Datum}
+\label{subsec:Datum}
+Datumsangaben sind entweder als TT.MM.YY oder T Monat YYYY anzugeben.
